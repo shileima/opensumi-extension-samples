@@ -33,5 +33,5 @@
   "include": [
     "./src/extension.ts",
     "./src/extend/**/*"
-  ]
+, "src/commands.ts"  ]
 }
