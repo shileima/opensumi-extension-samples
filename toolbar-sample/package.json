@@ -16,6 +16,46 @@
   ],
   "main": "./out/extension.js",
   "contributes": {
+    "toolbar": {
+      "actions": [
+        {
+          "type": "button",
+          "title": "运行 (Run)",
+          "iconPath": "./icons/start.svg",
+          "id": "sample-start",
+          "command": "sample-start",
+          "states": {
+            "default": {
+              "btnTitleStyle": "horizontal",
+              "titleForeground": "#FF004F"
+            },
+            "clicked": {
+              "titleForeground": "#CCC"
+            }
+          }
+        },
+        {
+          "type": "button",
+          "title": "弹窗 (Popover)",
+          "iconPath": "./icons/book.svg",
+          "id": "popover-start",
+          "command": "popover-command",
+          "popoverComponent": "CustomPopover",
+          "popoverStyle": {
+            "minWidth": "200",
+            "minHeight": "200"
+          },
+          "states": {
+            "default": {
+              "titleForeground": "#FF004F"
+            },
+            "clicked": {
+              "titleForeground": "#CCC"
+            }
+          }
+        }
+      ]
+    },
     "commands": [
       {
         "command": "popover-command",
@@ -103,7 +143,8 @@
     "compile": "sumi compile",
     "fix": "export NODE_OPTIONS=--openssl-legacy-provider",
     "watch": "sumi watch",
-    "dev": "sumi dev -e=$(pwd)"
+    "dev": "sumi dev -e=$(pwd)",
+    "publish": "webstatic deploy --appkey=com.sankuai.daojiaqarpa.xcode --artifact=out --env=test --token=43edc58c-3422-4bf3-aece-e08cb12fde7d"
   },
   "devDependencies": {
     "@opensumi/cli": "latest",
