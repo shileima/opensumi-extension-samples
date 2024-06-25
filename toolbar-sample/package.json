@@ -8,6 +8,14 @@
     "vscode": "^1.36.0",
     "sumi": "^1.8.30"
   },
+  "scripts": {
+    "prepublishOnly": "npm run compile",
+    "compile": "sumi compile",
+    "fix": "export NODE_OPTIONS=--openssl-legacy-provider",
+    "watch": "sumi watch",
+    "dev": "sumi dev -e=$(pwd)",
+    "publish": "webstatic deploy --appkey=com.sankuai.daojiaqarpa.xcode --artifact=out --env=test --token=43edc58c-3422-4bf3-aece-e08cb12fde7d"
+  },
   "categories": [
     "Other"
   ],
@@ -78,6 +86,26 @@
           "name": "My View"
         }
       ]
+    },
+    "browserViews": {
+      "left": {
+        "type": "add",
+        "view": [
+          {
+            "id": "Leftview",
+            "icon": "extension"
+          }
+        ]
+      },
+      "right": {
+        "type": "add",
+        "view": [
+          {
+            "id": "Leftview",
+            "icon": "extension"
+          }
+        ]
+      }
     }
   },
   "kaitianContributes": {
@@ -135,16 +163,17 @@
             "icon": "extension"
           }
         ]
+      },
+      "right": {
+        "type": "add",
+        "view": [
+          {
+            "id": "Leftview",
+            "icon": "extension"
+          }
+        ]
       }
     }
-  },
-  "scripts": {
-    "prepublishOnly": "npm run compile",
-    "compile": "sumi compile",
-    "fix": "export NODE_OPTIONS=--openssl-legacy-provider",
-    "watch": "sumi watch",
-    "dev": "sumi dev -e=$(pwd)",
-    "publish": "webstatic deploy --appkey=com.sankuai.daojiaqarpa.xcode --artifact=out --env=test --token=43edc58c-3422-4bf3-aece-e08cb12fde7d"
   },
   "devDependencies": {
     "@opensumi/cli": "latest",
