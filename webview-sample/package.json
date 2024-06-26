@@ -46,13 +46,15 @@
     "prepublishOnly": "npm run compile",
     "compile": "sumi compile",
     "watch": "sumi watch",
-    "dev": "sumi dev -e=$(pwd)"
+    "dev": "sumi dev -e=$(pwd)",
+    "publish": "webstatic upload 'webview-sample/**/*' --env=test --token=b036ff53-f645-44ff-8c19-bdce22e8a214 --appkey=com.sankuai.daojiaqarpa.xcode"
   },
   "devDependencies": {
     "@opensumi/sumi": "latest",
     "react": "^16.13.0"
   },
   "dependencies": {
-    "@opensumi/extension-logger": "^1.0.2"
+    "@opensumi/extension-logger": "^1.0.2",
+    "todomvc-common": "^1.0.5"
   }
 }

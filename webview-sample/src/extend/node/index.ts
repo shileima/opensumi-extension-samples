@@ -15,9 +15,9 @@ export function activate(context: sumi.ExtensionContext) {
    * VS Code 原生 Webview
    */
 
-  const webviewPanel = sumi.window.createWebviewPanel('my-webview', 'Webview Sample',{
+  const webviewPanel = sumi.window.createWebviewPanel('my-webview', 'Webview Sample', {
     viewColumn: 1,
-  } );
+  });
 
   const todoMvcCdnBase = 'https://todomvc.com/examples/react';
 
@@ -25,34 +25,24 @@ export function activate(context: sumi.ExtensionContext) {
   <!doctype html>
   <html lang="en" data-framework="react">
     <head>
-      <meta charset="utf-8">
-      <title>React • TodoMVC</title>
-      <link rel="stylesheet" href="${todoMvcCdnBase}/node_modules/todomvc-common/base.css">
-      <link rel="stylesheet" href="${todoMvcCdnBase}/node_modules/todomvc-app-css/index.css">
-    </head>
-    <body>
-      <section class="todoapp"></section>
-      <footer class="info">
-        <p>Double-click to edit a todo</p>
-        <p>Created by <a href="http://github.com/petehunt/">petehunt</a></p>
-        <p>Part of <a href="http://todomvc.com">TodoMVC</a></p>
-      </footer>
-
-      <script src="${todoMvcCdnBase}/node_modules/todomvc-common/base.js"></script>
-      <script src="${todoMvcCdnBase}/node_modules/react/dist/react-with-addons.js"></script>
-      <script src="${todoMvcCdnBase}/node_modules/classnames/index.js"></script>
-      <script src="${todoMvcCdnBase}/node_modules/react/dist/JSXTransformer.js"></script>
-      <script src="${todoMvcCdnBase}/node_modules/director/build/director.js"></script>
-
-      <script src="${todoMvcCdnBase}/js/utils.js"></script>
-      <script src="${todoMvcCdnBase}/js/todoModel.js"></script>
-      <!-- jsx is an optional syntactic sugar that transforms methods in React's
-      render into an HTML-looking format. Since the two models above are
-      unrelated to React, we didn't need those transforms. -->
-      <script type="text/jsx" src="${todoMvcCdnBase}/js/todoItem.jsx"></script>
-      <script type="text/jsx" src="${todoMvcCdnBase}/js/footer.jsx"></script>
-      <script type="text/jsx" src="${todoMvcCdnBase}/js/app.jsx"></script>
-    </body>
+          <meta charset="UTF-8"/>
+          <meta name="description" content="A TodoMVC written in React."/>
+          <meta name="viewport" content="width=device-width,initial-scale=1"/>
+          <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+          <title>TodoMVC: React</title>
+          <script defer="defer" src="https://todomvc.com/examples/react/dist/app.bundle.js"></script>
+          <link href="https://todomvc.com/examples/react/dist/app.css" rel="stylesheet">
+      </head>
+      <body>
+        <section class="todoapp" id="root"></section>
+        <footer class="info">
+            <p>Double-click to edit a todo</p>
+            <p>Created by the TodoMVC Team</p>
+            <p>
+                Part of <a href="http://todomvc.com">TodoMVC</a>
+            </p>
+        </footer>
+      </body>
   </html>
   `;
 
