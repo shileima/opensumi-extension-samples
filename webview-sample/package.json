@@ -16,16 +16,27 @@
   ],
   "main": "./out/extension.js",
   "contributes": {
-    "commands": [
-      {
-        "command": "HelloOpenSumi",
-        "title": "HelloOpenSumi"
+    "browserMain": "./out/browser/index.js",
+    "workerMain": "./out/worker/index.js",
+    "viewsProxies": [
+      "WebviewContainer"
+    ],
+    "browserViews": {
+      "left": {
+        "type": "add",
+        "view": [
+          {
+            "id": "WebviewContainer",
+            "iconPath": "icons/Web.png",
+            "title": "Plain Webview 示例"
+          }
+        ]
       }
-    ]
+    }
   },
   "kaitianContributes": {
     "browserMain": "./out/browser/index.js",
-    "nodeMain": "./out/node/index.js",
+    "workerMain": "./out/worker/index.js",
     "viewsProxies": [
       "WebviewContainer"
     ],

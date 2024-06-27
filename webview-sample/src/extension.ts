@@ -1,17 +1,49 @@
-// vscode namespace 下为 VS Code 插件 API
-import * as vscode from "vscode";
-import { loggerFactory } from '@opensumi/extension-logger';
+import * as sumi from "sumi";
+import { webviewId } from "./extend/common/constants"
 
-const logger = loggerFactory('<Your Logger Name>', 'Trace');
+export function activate(context: sumi.ExtensionContext) {
+  /**
+   * OpenSumi 扩展的 Webview
+   */
+  // 获取 webviewHandle
+  const webview = sumi.webview.getPlainWebviewHandle(webviewId);
+  // 指定加载某个 url
+  webview.loadUrl('https://www.baidu.com');
 
-export function activate(context: vscode.ExtensionContext) {
-  logger.info('[Custom Message] Start extension successed.');
-  context.subscriptions.push(
-    vscode.commands.registerCommand("HelloOpenSumi", async () => {
-      logger.info('execute HelloOpenSumi');
-      vscode.window.showInformationMessage('Hello Kaitian');
-    })
-  );
+  
+
+  /**
+   * VS Code 原生 Webview
+   */
+
+  const webviewPanel = sumi.window.createWebviewPanel('my-webview', 'Webview Sample', {
+    viewColumn: 1,
+  });
+
+  webviewPanel.webview.html = `
+  <!doctype html>
+  <html lang="en" data-framework="react">
+    <head>
+          <meta charset="UTF-8"/>
+          <meta name="description" content="A TodoMVC written in React."/>
+          <meta name="viewport" content="width=device-width,initial-scale=1"/>
+          <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+          <title>TodoMVC: React</title>
+          <script defer="defer" src="https://todomvc.com/examples/react/dist/app.bundle.js"></script>
+          <link href="https://todomvc.com/examples/react/dist/app.css" rel="stylesheet">
+      </head>
+      <body>
+        <section class="todoapp" id="root"></section>
+        <footer class="info">
+            <p>Double-click to edit a todo</p>
+            <p>Created by the TodoMVC Team</p>
+            <p>
+                Part of <a href="http://todomvc.com">TodoMVC</a>
+            </p>
+        </footer>
+      </body>
+  </html>
+  `;
+
+  webviewPanel.reveal();
 }
-
-export function deactivate() {}

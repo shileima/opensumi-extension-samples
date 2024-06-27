@@ -1,5 +1,5 @@
 import * as sumi from "sumi";
-import { webviewId } from "../common/constants";
+import { webviewId } from "../common/constants"
 
 export function activate(context: sumi.ExtensionContext) {
   /**
@@ -8,8 +8,9 @@ export function activate(context: sumi.ExtensionContext) {
   // 获取 webviewHandle
   const webview = sumi.webview.getPlainWebviewHandle(webviewId);
   // 指定加载某个 url
-  webview.loadUrl('https://opensumi.com');
+  webview.loadUrl('https://www.baidu.com');
 
+  
 
   /**
    * VS Code 原生 Webview
@@ -18,8 +19,6 @@ export function activate(context: sumi.ExtensionContext) {
   const webviewPanel = sumi.window.createWebviewPanel('my-webview', 'Webview Sample', {
     viewColumn: 1,
   });
-
-  const todoMvcCdnBase = 'https://todomvc.com/examples/react';
 
   webviewPanel.webview.html = `
   <!doctype html>
